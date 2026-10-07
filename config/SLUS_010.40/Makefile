@@ -10,6 +10,8 @@ $(BUILD)/data/SLUS_010.40.elf: LDFLAGS += \
 	--retain-symbols-file=config/SLUS_010.40/exports.txt
 
 $(BUILD)/src/SLUS_010.40/main.c.o: CC1FLAGS += -Wno-return-type
+$(BUILD)/src/SLUS_010.40/libetc/INTR.c.o: CC1FLAGS += -fno-rerun-cse-after-loop
+$(BUILD)/src/SLUS_010.40/libgpu/SYS.c.o: CC1FLAGS += -fno-rerun-cse-after-loop -fno-force-mem
 $(BUILD)/src/SLUS_010.40/25AC.c.o: MASFLAGS += --expand-div
 
 $(patsubst %,$(BUILD)/src/SLUS_010.40/%.c.o, \
